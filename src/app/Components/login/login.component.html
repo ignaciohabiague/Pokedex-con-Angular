@@ -1,0 +1,20 @@
+<div id="container">
+    <form [formGroup]="myForm" id="login-form" method="get">
+        <h1>Ingresa!</h1>
+        <div>
+            <input formControlName="email" class="input-item" type="email" name="email" placeholder="Email" required>
+        </div>
+        <div *ngIf="myForm.get('email')?.errors && myForm.get('email')?.dirty">
+            El campo es obligatorio
+        </div>
+        <div>
+            <input formControlName="password" class="input-item" type="password" name="password" placeholder="Contraseña" required maxlength="8">
+        </div>
+        <div *ngIf="myForm.get('password')?.errors && myForm.get('password')?.dirty">
+            El campo es obligatorio
+        </div>
+        <div>
+            <input id="btn-submit" type="submit" value="Login">
+        </div>
+    </form>
+</div>

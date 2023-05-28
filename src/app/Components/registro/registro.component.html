@@ -1,0 +1,29 @@
+<div id="container">
+    <form [formGroup]="myForm" id="register-form" method="get">
+        <h1>Registrate!</h1>
+        <div>
+            <input formControlName="nombre" class="input-item" type="text" name="full-name" placeholder="Nombre Completo" required>
+        </div>
+        <div>
+            <input formControlName="email" class="input-item" type="email" name="email" placeholder="Email" required>
+        </div>
+        <div *ngIf="myForm.get('email')?.errors && myForm.get('email')?.dirty">
+            El campo es obligatorio
+        </div>
+        <div>
+            <input formControlName="edad" class="input-item" type="number" name="age" placeholder="Edad" min="18" max="46">
+        </div>
+        <div>
+            <input formControlName="password"  class="input-item" type="password" name="password" placeholder="Contraseña" required maxlength="8">
+        </div>
+        <div *ngIf="myForm.get('password')?.errors && myForm.get('password')?.dirty">
+            El campo es obligatorio
+        </div>
+        <div>
+            <input formControlName="password2" class="input-item" type="password" name="password" placeholder="Confirmar contraseña" required maxlength="8">
+        </div>
+        <div>
+            <input id="btn-submit" type="submit" value="Register">
+        </div>
+    </form>
+</div>
